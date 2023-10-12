@@ -24,6 +24,15 @@ class B24
         $auth_id = Options\Config::getAuthId();
         $user_id = Options\Config::getUserId();
 
+        //временный костыль для второго сайта
+        if (SITE_ID == 'rw')
+        {
+            $url = "readywebsite.bitrix24.ru";
+            $auth_id = "35v69sjn7xdee5lc";
+            $user_id = 1;
+        }
+        //////////////////////////////////////////
+
         $result = $http->post(
             'https://' . $url . '/rest/' . $user_id . '/' . $auth_id . '/' . $method,
             $data
